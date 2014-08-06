@@ -65,7 +65,7 @@ import edu.wustl.keggproject.client.datasource.ConstraintDS;
 import edu.wustl.keggproject.client.datasource.ObjectiveDS;
 import edu.wustl.keggproject.client.datasource.PathwayDS;
 
-// This was the initial prototype implementation of the system, now @deprecated
+// This was the initial prototype implementation of the system, now @Deprecated
 @Deprecated public class WorkPanel {
 
 	private static HorizontalSplitPanel instance;
@@ -77,8 +77,6 @@ import edu.wustl.keggproject.client.datasource.PathwayDS;
 	final Anchor titlePanel_result = new Anchor("Result", "#");
 	VerticalPanel titlePanel;
 	private String id = "det";
-	private int uid = 0;
-
 	VerticalPanel panel = new VerticalPanel();
 	// SuggestBox suggestBox = new BateriaSuggestionBox();
 	SuggestBox suggestBox = new SuggestBox();

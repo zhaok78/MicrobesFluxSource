@@ -44,8 +44,7 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.smartgwt.client.widgets.Label;
 
-public class TopPanel extends HorizontalPanel {
-
+@Deprecated public class TopPanel extends HorizontalPanel {
 	SuggestBox suggestBox;
 	String id;
 	WorkPanel w;

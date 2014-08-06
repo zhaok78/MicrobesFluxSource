@@ -32,6 +32,7 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.FocusEvent;
 import com.google.gwt.event.dom.client.FocusHandler;
+import com.google.gwt.http.client.Request;
 import com.google.gwt.http.client.RequestBuilder;
 import com.google.gwt.http.client.RequestCallback;
 import com.google.gwt.http.client.Response;
@@ -39,11 +40,10 @@ import com.google.gwt.http.client.URL;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.CheckBox;
+import com.google.gwt.user.client.ui.FileUpload;
 import com.google.gwt.user.client.ui.FormPanel;
 import com.google.gwt.user.client.ui.FormPanel.SubmitCompleteEvent;
 import com.google.gwt.user.client.ui.FormPanel.SubmitEvent;
-import com.google.gwt.user.client.ui.FileUpload;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -54,9 +54,6 @@ import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
-import com.google.gwt.http.client.Request;
-
-
 import com.smartgwt.client.data.XJSONDataSource;
 import com.smartgwt.client.data.fields.DataSourceTextField;
 import com.smartgwt.client.types.Side;
@@ -1013,25 +1010,25 @@ public class RightPanel {
 		final Tab faqTab = new Tab("FAQ");
 		final Tab futureTab = new Tab("Future Work");
 		
+		// TODO: figure out a way to embed IFrames.
 		HTMLPane introHTML = new HTMLPane();
-		introHTML.setIFrameURL("http://tanglab.engineering.wustl.edu/media/intro.html");
+		// introHTML.setIFrameURL("http://tanglab.engineering.wustl.edu/media/intro.html");
 		introHTML.setScrollbarSize(0);
 		
-		
 		HTMLPane archHTML = new HTMLPane();
-		archHTML.setIFrameURL("http://tanglab.engineering.wustl.edu/media/arch.html");
+		// archHTML.setIFrameURL("http://tanglab.engineering.wustl.edu/media/arch.html");
 		archHTML.setScrollbarSize(0);
 		
 		HTMLPane demoHTML = new HTMLPane();
-		demoHTML.setIFrameURL("http://tanglab.engineering.wustl.edu/media/demo.html");
+		// demoHTML.setIFrameURL("http://tanglab.engineering.wustl.edu/media/demo.html");
 		demoHTML.setScrollbarSize(0);
 		
 		HTMLPane faqHTML = new HTMLPane();
-		faqHTML.setIFrameURL("http://tanglab.engineering.wustl.edu/media/faq.html");
+		// faqHTML.setIFrameURL("http://tanglab.engineering.wustl.edu/media/faq.html");
 		faqHTML.setScrollbarSize(0);
 		
 		HTMLPane futureHTML = new HTMLPane();
-		futureHTML.setIFrameURL("http://tanglab.engineering.wustl.edu/media/future.html");
+		// futureHTML.setIFrameURL("http://tanglab.engineering.wustl.edu/media/future.html");
 		futureHTML.setScrollbarSize(0);
 		
 		introductionTab.setPane(introHTML);
