@@ -45,9 +45,9 @@ public class MicrobesFlux implements EntryPoint {
 		
 		VerticalPanel fullpanel = new VerticalPanel(); // fullpanel==rootpanel; fullpanel=loginpanel+lower;
 		HTMLPane logoPane = new HTMLPane();
-		
-		logoPane.setIFrameURL("http://tanglab.engineering.wustl.edu/media/logo.html");
-		logoPane.setScrollbarSize(0);
+		// TODO: figure out a way to embed iframe.
+		// logoPane.setIFrame("http://tanglab.engineering.wustl.edu/media/logo.html");
+		logoPane.setScrollbarSize(0);	
 		logoPane.setSize("100%", "80px");
 		fullpanel.add(logoPane);
 		
