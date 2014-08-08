@@ -11,7 +11,7 @@ from compounddb import CompoundDB
 from enzyme import Enzyme
 from reaction import Reaction
 from metabolism import Metabolism
-from view.json import Json
+from flux.view.json import Json
 
 # Model View Controller
 class OptimizationModel:

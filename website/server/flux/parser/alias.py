@@ -3,7 +3,7 @@
 import os
 import cPickle
 from helper import *
-from constants import baseurl
+from flux.constants import baseurl
 # from flux.models import Compound
 
 """ 

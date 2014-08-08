@@ -1,16 +1,29 @@
+import os
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
 ADMINS = (
     ('Eric Xu', 'youxu@wustl.edu'),
 )
 
 MANAGERS = ADMINS
 
+DATABASES = {
+	'default': {
+		'ENGINE': 'django.db.backends.sqlite3',
+		'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+	}
+}
+
 # CHANGE THE LINE BELOW
-DATABASE_ENGINE = 'mysql'           
-DATABASE_NAME = 'your_db_name'             # Or path to database file if using sqlite3.
-DATABASE_USER = 'your_db_user'             # Not used with sqlite3.
-DATABASE_PASSWORD = 'your_db_pass'         # Not used with sqlite3.
-DATABASE_HOST = 'your_db_host'             # Set to empty string for localhost. Not used with sqlite3.
-DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
+DATABASE_ENGINE = 'sqlite3'           
+#DATABASE_NAME = 'your_db_name'             # Or path to database file if using sqlite3.
+#DATABASE_USER = 'your_db_user'             # Not used with sqlite3.
+#DATABASE_PASSWORD = 'your_db_pass'         # Not used with sqlite3.
+#DATABASE_HOST = 'your_db_host'             # Set to empty string for localhost. Not used with sqlite3.
+#DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
 
 TIME_ZONE = 'America/Chicago'
 
@@ -22,7 +35,7 @@ USE_I18N = True
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
 # MEDIA_ROOT = '/home/eric/keggdfba/flux/gwt/'
-MEDIA_ROOT = '/research-www/engineering/tanglab/flux/temp/'
+MEDIA_ROOT = '/Users/xuy/PlayGround/MicrobesFluxSource/website/server/flux/temp/'
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
@@ -41,9 +54,10 @@ SECRET_KEY = 'your_secrt_key'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.load_template_source',
-    'django.template.loaders.app_directories.load_template_source',
-#     'django.template.loaders.eggs.load_template_source',
+	('django.template.loaders.cached.Loader', (
+		'django.template.loaders.filesystem.Loader',
+		'django.template.loaders.app_directories.Loader',
+	)),
 )
 
 MIDDLEWARE_CLASSES = (
@@ -71,5 +85,7 @@ INSTALLED_APPS = (
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.file'
 # CHANGE THE LINE BELOW
-SESSION_FILE_PATH = '/research-www/engineering/tanglab/flux/temp/'
+SESSION_FILE_PATH = '/Users/xuy/PlayGround/MicrobesFluxSource/website/server/flux/temp/'
 LOGIN_URL = '/'
+
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'

@@ -1,4 +1,4 @@
-from view.json import Json
+from flux.view.json import Json
 
 """
     # TODO

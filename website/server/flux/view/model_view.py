@@ -1,12 +1,12 @@
-from view.foundations import ajax_callback
-from view.foundations import table_response_envelope
-from view.foundations import response_envelope
-from view.json import Json
+from flux.view.foundations import ajax_callback
+from flux.view.foundations import table_response_envelope
+from flux.view.foundations import response_envelope
+from flux.view.json import Json
 
 from time import gmtime, strftime
 from flux.models import Profile
 
-from storage import usl # Unified Storage Library
+from flux.storage import usl # Unified Storage Library
 import os
 
 ####################################################
@@ -164,7 +164,7 @@ def svg(request):
     p = subprocess.Popen("/research-www/engineering/tanglab/flux/submit_job_to_cloud.sh " + n + " svg " + address , shell=True) 
     return HttpResponse(content = "SVG Task submitted", status = 200, content_type = "text/html")
 
-from task.task import send_mail
+from flux.task.task import send_mail
 
 def sbml(request):
     n = request.session["collection_name"]

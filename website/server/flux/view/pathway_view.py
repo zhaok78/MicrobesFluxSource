@@ -1,8 +1,8 @@
 # from view.foundations import new_get_json
-from view.foundations import ajax_callback
-from view.foundations import response_envelope
-from view.foundations import table_response_envelope
-from view.json import Json
+from flux.view.foundations import ajax_callback
+from flux.view.foundations import response_envelope
+from flux.view.foundations import table_response_envelope
+from flux.view.json import Json
 from parser.reaction import parse_reaction_part
 
 import re
