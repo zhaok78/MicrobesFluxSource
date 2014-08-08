@@ -26,7 +26,7 @@ class Metabolism:
         
         self.reaction_name_to_active_map = {}
         if f:
-            print "[INFO] Read file", f
+            # print "[INFO] Read file", f
             self.__readfile(f)
     
     

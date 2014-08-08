@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.core.files import File
 from django.core.files.base import ContentFile
-from view.foundations import *
+from flux.view.foundations import *
 
 def get_collection_list(u):
     p = Profile.objects.filter(user = u)
@@ -67,7 +67,7 @@ def collection_create(request):
     if not profile:
         if bac_name == "TOY":
             import cPickle
-            f = open("/research-www/engineering/tanglab/flux/toy/toy_pathway.pickle", "rb")
+            f = open("/Users/xuy/PlayGround/MicrobesFluxSource/website/server/flux/toy/toy_pathway.pickle", "rb")
             p = cPickle.load(f)
         else:
             p = generate_pathway(bac_name, collection_name)

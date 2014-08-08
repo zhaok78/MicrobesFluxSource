@@ -1,7 +1,7 @@
 ccopy_reg
 _reconstructor
 p1
-(cparser.keggpathway
+(cflux.parser.keggpathway
 PathwayNetwork
 p2
 c__builtin__
@@ -14,7 +14,7 @@ p6
 (dp7
 S'j8'
 p8
-(iparser.reaction
+(iflux.parser.reaction
 Reaction
 p9
 (dp10
@@ -59,7 +59,7 @@ p26
 g23
 asbsS'j9'
 p28
-(iparser.reaction
+(iflux.parser.reaction
 Reaction
 p29
 (dp30
@@ -93,7 +93,7 @@ sg26
 g35
 asbsS'BIOMASS0'
 p37
-(iparser.reaction
+(iflux.parser.reaction
 Reaction
 p38
 (dp39
@@ -143,7 +143,7 @@ ag47
 ag48
 asbsS'j4'
 p50
-(iparser.reaction
+(iflux.parser.reaction
 Reaction
 p51
 (dp52
@@ -177,7 +177,7 @@ sg26
 g57
 asbsS'j5'
 p59
-(iparser.reaction
+(iflux.parser.reaction
 Reaction
 p60
 (dp61
@@ -211,7 +211,7 @@ sg26
 g66
 asbsS'j7'
 p68
-(iparser.reaction
+(iflux.parser.reaction
 Reaction
 p69
 (dp70
@@ -249,7 +249,7 @@ g76
 ag75
 asbsS'j2'
 p78
-(iparser.reaction
+(iflux.parser.reaction
 Reaction
 p79
 (dp80
@@ -283,7 +283,7 @@ sg26
 g85
 asbsS'j3'
 p87
-(iparser.reaction
+(iflux.parser.reaction
 Reaction
 p88
 (dp89
@@ -317,7 +317,7 @@ sg26
 g94
 asbsS'j10'
 p96
-(iparser.reaction
+(iflux.parser.reaction
 Reaction
 p97
 (dp98
@@ -351,7 +351,7 @@ sg26
 g103
 asbsS'j11'
 p105
-(iparser.reaction
+(iflux.parser.reaction
 Reaction
 p106
 (dp107
@@ -388,7 +388,7 @@ p114
 (dp115
 sS'compounddb'
 p116
-(iparser.compounddb
+(iflux.parser.compounddb
 CompoundDB
 p117
 (dp118
@@ -414,7 +414,7 @@ p127
 I0
 sS'sv'
 p128
-cparser.defaultdict
+ccollections
 defaultdict
 p129
 (c__builtin__
@@ -608,7 +608,7 @@ sg105
 F0
 ssS'model'
 p206
-(iparser.keggpathway
+(iflux.parser.keggpathway
 OptimizationModel
 p207
 (dp208
