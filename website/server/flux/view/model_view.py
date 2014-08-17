@@ -219,7 +219,6 @@ def optimization(request):
         pro.save()
         
     return HttpResponse(content = "New Optimization problem submitted .. ", status = 200, content_type = "text/html")
-
 """ Check names against all the user-defined pathway"""
 def check_user_upload_file_format(pathway, f):
     if not f:
@@ -239,18 +238,20 @@ def check_user_upload_file_format(pathway, f):
             return False
     for lines in f:
         t = lines.strip(' ')
+        t = t.strip('\n')
         if len(t)==0:   # Skip empty line
+            continue
+        if t[0] == "#":
             continue
         try:            # see if they are all numbers
             numbers = map(float, lines.split())
         except:
             print "Can not convert to float"
             return False
-        if len(numbers) != length:  # 
+        if len(numbers) != length:  #
             print "Number length is not correct"
             return False
     return True
-    
     
 """ This function checks the validity of the user uploaded file"""
 # TO delete
