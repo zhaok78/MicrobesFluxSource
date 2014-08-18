@@ -36,6 +36,8 @@ def _process_object_fetch(pathway):
         j.add_pair("pk", public_key)
         public_key +=1
         j.add_pair("r", name)
+        if name not in weights:
+            weight[name] = 1.0
         j.add_pair("w", str(weights[name]))
         ret.add_item(j)
     return ret
@@ -96,7 +98,11 @@ def _process_boundary_update(input_params, pathway):
 def user_obj_fetch(request):    # Merged
     """ Get the user-defined objective function weights"""
     pathway = request.session["collection"]
-    return _process_object_fetch(pathway)
+    # Save the session because fetch might change the underlying pathway
+    # if it is the first time fetch is called. We will init all weight to 1.
+    result = _process_object_fetch(pathway)
+    request.session.save()  
+    return result
 
 @ajax_callback
 @response_envelope
@@ -119,7 +125,11 @@ def sv_fetch(request):
 def user_bound_fetch(request):
     """ Get the upper and lower bound"""
     pathway = request.session["collection"]
-    return _process_boundary_fetch(pathway)
+    # Necessary because the first time boundary fetch is called on a
+    # pathway, we init the boundary.
+    result = _process_boundary_fetch(pathway)
+    request.session.save()
+    return result
 
 @ajax_callback
 @response_envelope
@@ -176,7 +186,7 @@ def sbml(request):
     f.close()
     attachments = [ n + ".sbml"]
     send_mail(address, attachments, title="SBML") 
-    return HttpResponse(content = "SBML Task submitted", status = 200, content_type = "text/html")
+    return HttpResponse(content = "SBML file send.", status = 200, content_type = "text/html")
 
 ### TODO: change the n here to usl system
 def optimization(request):
