@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.core.files import File
 from django.core.files.base import ContentFile
+from django.core.files.storage import default_storage
 from flux.view.foundations import *
 
 def get_collection_list(u):
@@ -42,6 +43,7 @@ def save_collection_to_disk(u, collection_name, obj):
     # print "user", p.user
     # print "to save", p.name
     file_content = ContentFile(cPickle.dumps(obj))
+    default_storage.delete(p.name)
     p.diskfile.save(p.name, file_content, save = True)
 
 @login_required

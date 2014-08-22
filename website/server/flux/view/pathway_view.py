@@ -1,12 +1,17 @@
-# from view.foundations import new_get_json
+import logging
+import re
+
+from django.http import HttpResponse
+from parser.reaction import parse_reaction_part
 from flux.view.foundations import ajax_callback
 from flux.view.foundations import response_envelope
 from flux.view.foundations import table_response_envelope
 from flux.view.json import Json
-from parser.reaction import parse_reaction_part
+from flux.utils.logger import log_handler
 
-import re
 digital_pattern = re.compile(r'.*(\d+)')
+logger = logging.getLogger('default')
+logger.addHandler(log_handler)
 
 def _get_compound_list(compond_string):
     coef, comp_list = parse_reaction_part(compond_string)
@@ -17,7 +22,7 @@ def _check_user_compounds_validity(pathway, compond_string):
         return True
     coef, comp_list = parse_reaction_part(compond_string)
     for c in comp_list:
-        print "Going to check name [" + c.strip() + "]"
+        logger.info("Going to check name [" + c.strip() + "]")
         if not pathway.check_valid_names(c.strip()):
             return False
     return True
@@ -72,8 +77,7 @@ def _process_pathway_add(input_params, pathway):
     public_key = len(pathway.reactions)
     
     ko = input_params['ko']
-    print "Input ko value is ", ko
-    
+    logger.info("Input ko value is " +  ko)
     reactants = input_params.get("reactants", "")
     arrow = input_params['arrow']
     products = input_params.get('products')
@@ -238,3 +242,13 @@ def pathway_add_check(request):
         return "Valid"
     else:
         return "Invalid"
+
+# This method is a backdoor used only for testing.
+def pathway_reaction_query(request):
+    q = request.GET
+    reaction_name = q['reaction']
+    pathway = request.session["collection"]
+    r = pathway.reactions[reaction_name]
+    json = r.getJson()
+    return HttpResponse(content = json.__repr__(), status = 200, content_type = "text/html")
+
