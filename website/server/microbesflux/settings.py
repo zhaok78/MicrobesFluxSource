@@ -35,7 +35,7 @@ USE_I18N = True
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
 # MEDIA_ROOT = '/home/eric/keggdfba/flux/gwt/'
-MEDIA_ROOT = '/Users/xuy/PlayGround/MicrobesFluxSource/website/server/flux/temp/'
+MEDIA_ROOT = '/home/microbesflux/git_src/xuy/MicrobesFluxSource/website/server/media/'
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
@@ -85,7 +85,7 @@ INSTALLED_APPS = (
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.file'
 # CHANGE THE LINE BELOW
-SESSION_FILE_PATH = '/Users/xuy/PlayGround/MicrobesFluxSource/website/server/flux/temp/'
+SESSION_FILE_PATH = '/home/microbesflux/git_src/xuy/MicrobesFluxSource/website/server/session/'
 LOGIN_URL = '/'
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
