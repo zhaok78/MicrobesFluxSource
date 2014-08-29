@@ -27,7 +27,7 @@
 package edu.wustl.keggproject.client;
 
 public class Configuration {
-	private String baseUrl = "http://tanglab.engineering.wustl.edu/flux/";
+	private String baseUrl = "http://www.microbesflux.org/flux/";
 	private String email = "";
 	private String uploadFile="";
 	
