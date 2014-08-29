@@ -38,7 +38,7 @@ import edu.wustl.keggproject.client.ConfigurationFactory;
 public class AccountSummaryDS extends RestDataSource {
 	private static AccountSummaryDS instance = null;
 	private static String myurl = ConfigurationFactory.getConfiguration()
-	.getBaseURL() + "user/summary/";
+	.getBaseUrl() + "user/summary/";
 
 	private AccountSummaryDS(String id) {
 		setID(id);

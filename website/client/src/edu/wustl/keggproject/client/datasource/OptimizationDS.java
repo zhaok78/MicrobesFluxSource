@@ -38,7 +38,7 @@ import edu.wustl.keggproject.client.ConfigurationFactory;
 public class OptimizationDS extends RestDataSource {
 	private static OptimizationDS instance = null;
 	private static String myurl = ConfigurationFactory.getConfiguration()
-			.getBaseURL();
+			.getBaseUrl();
 
 	private OptimizationDS(String id) {
 		setID(id);

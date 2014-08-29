@@ -180,7 +180,7 @@ public class LeftPanel {
 		
 		final FormPanel passwordChangePanel = new FormPanel();
 		passwordChangePanel.setAction(ConfigurationFactory.getConfiguration()
-				.getBaseURL() + "user/password/change/");
+				.getBaseUrl() + "user/password/change/");
 
 		passwordChangePanel.setMethod(FormPanel.METHOD_POST);
 

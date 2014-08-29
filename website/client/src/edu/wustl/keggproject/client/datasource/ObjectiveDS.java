@@ -38,7 +38,7 @@ import edu.wustl.keggproject.client.ConfigurationFactory;
 public class ObjectiveDS extends RestDataSource {
 	private static ObjectiveDS instance = null;
 	private static String myurl = ConfigurationFactory.getConfiguration()
-			.getBaseURL() + "model/objective/";
+			.getBaseUrl() + "model/objective/";
 
 	private ObjectiveDS(String id) {
 		setID(id);

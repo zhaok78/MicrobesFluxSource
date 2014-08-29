@@ -39,7 +39,7 @@ import edu.wustl.keggproject.client.ConfigurationFactory;
 public class ConstraintDS extends RestDataSource {
 	private static ConstraintDS instance = null;
 	private static String baseurl = ConfigurationFactory.getConfiguration()
-			.getBaseURL() + "model/sv/";
+			.getBaseUrl() + "model/sv/";
 
 	private ConstraintDS(String id) {
 		setID(id);

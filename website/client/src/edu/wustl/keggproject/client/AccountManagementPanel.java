@@ -103,7 +103,7 @@ public class AccountManagementPanel {
 
 		final FormPanel changePassword = new FormPanel();
 		changePassword.setAction(ConfigurationFactory.getConfiguration()
-				.getBaseURL() + "user/password/change/");
+				.getBaseUrl() + "user/password/change/");
 
 		changePassword.setMethod(FormPanel.METHOD_POST);
 

@@ -110,7 +110,7 @@ public class RightPanel {
 		final Configuration conf = ConfigurationFactory.getConfiguration();
 
 		final FormPanel createForm = new FormPanel();
-		createForm.setAction(conf.getBaseURL() + "collection/create/");
+		createForm.setAction(conf.getBaseUrl() + "collection/create/");
 		createForm.setMethod(FormPanel.METHOD_GET);
 
 		final TextBox collectionbox = new TextBox();
@@ -203,7 +203,7 @@ public class RightPanel {
 						
 						else {
 							conf.setCurrentCollection(tempvalue);
-							conf.setCurrentEmail(tempemail);
+							conf.setEmail(tempemail);
 							sf.setStatus(" Current Model: "
 									+ conf.getCurrentCollection());
 							changeToGenome();
@@ -222,7 +222,7 @@ public class RightPanel {
 		ListGrid l = new ListGrid();
 		XJSONDataSource stat = new XJSONDataSource();
 		Configuration conf = ConfigurationFactory.getConfiguration();
-		stat.setDataURL(conf.getBaseURL() + "pathway/stat/?collection_name=" + conf.getCurrentCollection());
+		stat.setDataURL(conf.getBaseUrl() + "pathway/stat/?collection_name=" + conf.getCurrentCollection());
 
 		DataSourceTextField itemField = new DataSourceTextField("name", "Item");
 		DataSourceTextField valueField = new DataSourceTextField("value", "Value");
@@ -432,7 +432,7 @@ public class RightPanel {
 		final FormPanel checkForm = new FormPanel();
 		
 		Configuration conf = ConfigurationFactory.getConfiguration();
-		checkForm.setAction(conf.getBaseURL() + "pathway/check/");
+		checkForm.setAction(conf.getBaseUrl() + "pathway/check/");
 		checkForm.setMethod(FormPanel.METHOD_GET);
 		checkForm.setWidget(gridPanel);
 		
@@ -493,7 +493,7 @@ public class RightPanel {
 		buttonCheck.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {				
 				StringBuffer url = new StringBuffer();
-				url.append(ConfigurationFactory.getConfiguration().getBaseURL());
+				url.append(ConfigurationFactory.getConfiguration().getBaseUrl());
 				url.append("pathway/check/");
 				url.append("?reactants=");
 				url.append(rbox.getText());
@@ -565,7 +565,7 @@ public class RightPanel {
 		
 		
 		final FormPanel SBMLform = new FormPanel();
-		SBMLform.setAction(ConfigurationFactory.getConfiguration().getBaseURL()+"model/sbml/");
+		SBMLform.setAction(ConfigurationFactory.getConfiguration().getBaseUrl()+"model/sbml/");
 		SBMLform.setMethod(FormPanel.METHOD_GET);
 		
 		
@@ -588,7 +588,7 @@ public class RightPanel {
 		});
 		
 		final FormPanel SVGForm = new FormPanel();
-		SVGForm.setAction(ConfigurationFactory.getConfiguration().getBaseURL()+"model/svg/");
+		SVGForm.setAction(ConfigurationFactory.getConfiguration().getBaseUrl()+"model/svg/");
 		SVGForm.setMethod(FormPanel.METHOD_GET);
 		
 		
@@ -852,7 +852,7 @@ public class RightPanel {
 		fbaSubmitButton.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 				StringBuffer url = new StringBuffer();
-				url.append(ConfigurationFactory.getConfiguration().getBaseURL());
+				url.append(ConfigurationFactory.getConfiguration().getBaseUrl());
 				url.append("model/optimization/");
 				url.append("?obj_type=" + obj.getSelectedIndex());
 				RequestBuilder builder = new RequestBuilder(RequestBuilder.GET, URL.encode(url.toString()));
@@ -898,7 +898,7 @@ public class RightPanel {
 
 		fPanel.setEncoding(FormPanel.ENCODING_MULTIPART);
 		fPanel.setMethod(FormPanel.METHOD_POST);
-		fPanel.setAction(ConfigurationFactory.getConfiguration().getBaseURL() + "model/upload/");
+		fPanel.setAction(ConfigurationFactory.getConfiguration().getBaseUrl() + "model/upload/");
 		
 		uploadButton.setText("Upload dFBA Data File");
 		uploadButton.addClickHandler(new ClickHandler() {
@@ -945,7 +945,7 @@ public class RightPanel {
 		dfbaSubmitButton.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 				StringBuffer url = new StringBuffer();
-				url.append(ConfigurationFactory.getConfiguration().getBaseURL());
+				url.append(ConfigurationFactory.getConfiguration().getBaseUrl());
 				url.append("model/dfba/");	// Server handles everything
 				url.append("?obj_type=" + obj.getSelectedIndex());
 				RequestBuilder builder = new RequestBuilder(RequestBuilder.GET, URL.encode(url.toString()));
@@ -1055,7 +1055,7 @@ public class RightPanel {
 			sf.clearStatus();
 			Window.alert("In Logout");
 			final FormPanel logoutForm = new FormPanel();
-			logoutForm.setAction(conf.getBaseURL()
+			logoutForm.setAction(conf.getBaseUrl()
 					+ "user/logout/");
 			logoutForm.setMethod(FormPanel.METHOD_GET);
 
@@ -1089,7 +1089,7 @@ public class RightPanel {
 			final VerticalPanel loginPanel = new VerticalPanel();
 
 			final FormPanel loginForm = new FormPanel();
-			loginForm.setAction(conf.getBaseURL()
+			loginForm.setAction(conf.getBaseUrl()
 					+ "user/login/");
 			
 			loginForm.setMethod(FormPanel.METHOD_POST);
@@ -1127,7 +1127,7 @@ public class RightPanel {
 			forgotform.add(forgotpassword);
 
 			forgotform.setMethod(FormPanel.METHOD_GET);
-			forgotform.setAction(conf.getBaseURL()
+			forgotform.setAction(conf.getBaseUrl()
 					+ "user/password/retrieve/");
 			forgotform.setVisible(false);
 
@@ -1332,7 +1332,7 @@ public class RightPanel {
 
 		final FormPanel registerForm = new FormPanel();
 		final Configuration conf = ConfigurationFactory.getConfiguration();
-		registerForm.setAction( conf.getBaseURL()
+		registerForm.setAction( conf.getBaseUrl()
 				+ "user/add/");
 		registerForm.setMethod(FormPanel.METHOD_POST);
 		registerForm

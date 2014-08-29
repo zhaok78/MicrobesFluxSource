@@ -39,7 +39,7 @@ import edu.wustl.keggproject.client.ConfigurationFactory;
 public class PathwayDS extends RestDataSource {
 	private static PathwayDS instance = null;
 	private static String myurl = ConfigurationFactory.getConfiguration()
-			.getBaseURL() + "pathway/";
+			.getBaseUrl() + "pathway/";
 
 	private PathwayDS(String id) {
 		setID(id);

@@ -94,7 +94,7 @@ public class StatusFormPanel {
 		clearForm();
 		final Configuration conf = ConfigurationFactory.getConfiguration();
 		RequestBuilder rb = new RequestBuilder(RequestBuilder.GET,
-				conf.getBaseURL() + "collection/list/");
+				conf.getBaseUrl() + "collection/list/");
 
 		final ListBox collectionListBox = new ListBox();
 		collectionListBox.setName("collection_name");
@@ -137,7 +137,7 @@ public class StatusFormPanel {
 
 		f.clear();
 		f.setWidget(loadPanel);
-		f.setAction(conf.getBaseURL() + "collection/select/");
+		f.setAction(conf.getBaseUrl() + "collection/select/");
 		f.setMethod(FormPanel.METHOD_GET);
 
 		f.addSubmitCompleteHandler(new FormPanel.SubmitCompleteHandler() {
@@ -192,7 +192,7 @@ public class StatusFormPanel {
 		}
 
 		RequestBuilder rb = new RequestBuilder(RequestBuilder.GET,
-				conf.getBaseURL() + "collection/save/");
+				conf.getBaseUrl() + "collection/save/");
 
 		class MyCallback2 implements RequestCallback {
 
@@ -222,7 +222,7 @@ public class StatusFormPanel {
 		setStatus("Saving current model as: ");
 		f.setVisible(true);
 		final Configuration conf = ConfigurationFactory.getConfiguration();
-		f.setAction(conf.getBaseURL() + "collection/saveas/");
+		f.setAction(conf.getBaseUrl() + "collection/saveas/");
 		f.setMethod(FormPanel.METHOD_GET);
 
 		final HorizontalPanel saveaspanel = new HorizontalPanel();

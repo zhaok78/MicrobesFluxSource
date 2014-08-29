@@ -38,7 +38,7 @@ import edu.wustl.keggproject.client.ConfigurationFactory;
 public class CollectionListDS extends RestDataSource {
 	private static CollectionListDS instance = null;
 	private static String baseurl = ConfigurationFactory.getConfiguration()
-			.getBaseURL() + "collection/list/";
+			.getBaseUrl() + "collection/list/";
 
 	private CollectionListDS(String id) {
 		setID(id);
