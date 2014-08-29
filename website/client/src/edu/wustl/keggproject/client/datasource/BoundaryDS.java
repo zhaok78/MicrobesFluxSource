@@ -38,7 +38,7 @@ import edu.wustl.keggproject.client.ConfigurationFactory;
 public class BoundaryDS extends RestDataSource {
 	private static BoundaryDS _instance = null;
 	private static String myurl = ConfigurationFactory.getConfiguration()
-			.getBaseURL() + "model/bound/";
+			.getBaseUrl() + "model/bound/";
 
 	private BoundaryDS(String id) {
 		setID(id);

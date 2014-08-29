@@ -1,29 +1,39 @@
-<project name="KeggSVN">
-	
-	  
-	  <target name="deploy" description="Copy source to the output folder">
-	  	<tar destfile="deploy.tar.bz2" basedir = "war" compression="bzip2">
-	  	</tar>
-	  		
-	  	<scp todir="eric:morphlotus@128.252.160.238:/home/eric/keggflux/flux/gwt"
-	  		file = "deploy.tar.bz2"
-	  		trust = "true">
-	    </scp>
-	  	
-	  	<sshexec host="128.252.160.238"
-	  		username="eric"
-	  		password="morphlotus"
-	  		command="tar jxf /home/eric/keggflux/flux/gwt/deploy.tar.bz2 -C /home/eric/keggflux/flux/gwt/"
-	  		trust = "true"
-	  	>
-	  	</sshexec>
-	  </target>
-	
-	  <target name="deploytoseas" description="Copy source to the output folder">
-	  	
-	  	<scp todir="xuy:Morphlotus123!@ssh.seas.wustl.edu:/research-www/engineering/tanglab/static"
-	  		trust = "true">
-	      <fileset dir="war"/>
-	    </scp>
-	  </target>
+<project name="MicrobesFluxClient" basedir="." default="default">
+    <property name="src.dir" value="src" />
+    <property name="build.dir" value="war" />
+    <path id="compile.classpath">
+        <fileset dir="${build.dir}/WEB-INF/lib">
+            <include name="**/*.jar" />
+            <include name="**/*.xml" />
+        </fileset>
+    </path>
+
+    <target name="default" depends="gwtc, buildwar,deploy">
+    </target>
+
+    <target name="gwtc" description="GWT compile to JavaScript">
+        <java failonerror="true" fork="true" classname="com.google.gwt.dev.Compiler">
+            <classpath>
+                <pathelement location="${src.dir}" />
+                <path refid="compile.classpath" />
+            </classpath>
+            <arg line="-logLevel INFO" />
+            <jvmarg value="-Xmx1024M" />
+            <arg value="edu.wustl.keggproject.MicrobesFlux" />
+        </java>
+    </target>
+
+    <target name="buildwar">
+        <war basedir="war" destfile="MicrobesFluxClient.war" webxml="war/WEB-INF/web.xml">
+            <exclude name="WEB-INF/**" />
+            <webinf dir="war/WEB-INF/">
+                <include name="**/gwt-servlet.jar" />
+                <include name="**/classes/**" />
+            </webinf>
+        </war>
+    </target>
+
+    <target name="deploy">
+        <copy file="MicrobesFluxClient.war" todir="." />
+    </target>
 </project>
