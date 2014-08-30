@@ -8,3 +8,5 @@ gwt-unitCache/
 war/
 file_storage.pk
 demo_dfba_report.txt
+constants_local.py
+settings.py
