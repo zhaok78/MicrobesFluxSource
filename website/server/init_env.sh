@@ -11,6 +11,7 @@ mkdir -p session
 mkdir -p media
 
 # Change Django settings.
+cp microbesflux/settings.py microbesflux/settings_blueprint.py
 platform=`uname`
 if [[ $platform == 'Darwin' ]]; then
 	sed -i "" "s%^MEDIA_ROOT.*\$%MEDIA_ROOT = \'${PWD}/media/\'%g " microbesflux/settings.py
