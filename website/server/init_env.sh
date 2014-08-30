@@ -2,12 +2,17 @@
 
 S=`pwd`
 
-# Generate constants.py for flux app.
-rm -f flux/constants.py
-echo '' > flux/constants.py
-echo "kegg_database = \"${S}/kegg_database/\" " >> flux/constants.py
-echo "baseurl = \"${S}/flux/\" " >> flux/constants.py
+# Generate constants_local.py for flux app.
+echo "1. Setup constants for MicrobesFlux"
+echo '' > flux/constants_blueprint.py
+echo "kegg_database = \"${S}/kegg_database/\" " >> flux/constants_blueprint.py
+echo "baseurl = \"${S}/flux/\" " >> flux/constants_blueprint.py
+cd flux
+rm -f constants.py
+mv constants_blueprint.py constants.py
+cd ..
 
+echo "2. Rewrite settings.py under microbesflux"
 mkdir -p session
 mkdir -p media
 
