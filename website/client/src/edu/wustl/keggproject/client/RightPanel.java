@@ -83,8 +83,7 @@ public class RightPanel {
 
 	VerticalPanel newModelPanel;
 	BateriaSuggestionBox suggestBox;
-	// TextBox suggestBox;
-	
+
 	SimplePanel sp = new SimplePanel();
 
 	public void initialize() {
@@ -137,13 +136,6 @@ public class RightPanel {
 		suggestBox.setStyleName("gwt-SuggestBox-F1");
 		suggestBox.setText("");
 		suggestBox.setSize("200px", "20px");
-//
-//		suggestBox = new TextBox();
-//		suggestBox.getElement().setId("suggest-box");
-//		suggestBox.setName("suggest-box");
-//		suggestBox.setText("");
-//		suggestBox.setSize("200px", "20px");
-		
 		
 		Button buttonRun = new Button();
 		buttonRun.addClickHandler(new ClickHandler() {
@@ -1010,25 +1002,24 @@ public class RightPanel {
 		final Tab faqTab = new Tab("FAQ");
 		final Tab futureTab = new Tab("Future Work");
 		
-		// TODO: figure out a way to embed IFrames.
 		HTMLPane introHTML = new HTMLPane();
-		// introHTML.setIFrameURL("http://tanglab.engineering.wustl.edu/media/intro.html");
+		introHTML.setContentsURL("intro.html");
 		introHTML.setScrollbarSize(0);
 		
 		HTMLPane archHTML = new HTMLPane();
-		// archHTML.setIFrameURL("http://tanglab.engineering.wustl.edu/media/arch.html");
+		archHTML.setContentsURL("arch.html");
 		archHTML.setScrollbarSize(0);
 		
 		HTMLPane demoHTML = new HTMLPane();
-		// demoHTML.setIFrameURL("http://tanglab.engineering.wustl.edu/media/demo.html");
+		demoHTML.setContentsURL("demo.html");
 		demoHTML.setScrollbarSize(0);
 		
 		HTMLPane faqHTML = new HTMLPane();
-		// faqHTML.setIFrameURL("http://tanglab.engineering.wustl.edu/media/faq.html");
+		faqHTML.setContentsURL("faq.html");
 		faqHTML.setScrollbarSize(0);
 		
 		HTMLPane futureHTML = new HTMLPane();
-		// futureHTML.setIFrameURL("http://tanglab.engineering.wustl.edu/media/future.html");
+		futureHTML.setContentsURL("future.html");
 		futureHTML.setScrollbarSize(0);
 		
 		introductionTab.setPane(introHTML);
