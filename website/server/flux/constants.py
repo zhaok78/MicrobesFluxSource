@@ -1,3 +1,6 @@
+import os, sys
+ROOT = os.path.dirname(__file__)
+#sys.path.insert(0, ROOT)
+from constants_local import *
 
-kegg_database = "/Users/xuy/PlayGround/MicrobesFluxSource/website/server/kegg_database/" 
-baseurl = "/Users/xuy/PlayGround/MicrobesFluxSource/website/server/flux/" 
+# sys.path.pop(0)
